@@ -2,9 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const port = 3001
 const router = require('./src/router')
-const uri = process.env.MONGODB_URI
 
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -16,6 +14,4 @@ app.get('/', (req, res) => {
 
 app.use('/api', router)
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`)
-})
+app.listen(process.env.PORT || 3000)
