@@ -12,7 +12,8 @@ const schema = new Schema({
         enum: ['HIGH', 'MEDIUM', 'LOW'],
     },
     date: { type: Date, required: true },
-    createdDate: { type: Date, default: Date.now }
+    createdDate: { type: Date, default: Date.now },
+    createdBy: { type: String }
 })
 
 schema.set('toJSON', { virtuals: true })

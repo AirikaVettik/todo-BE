@@ -4,5 +4,6 @@ mongoose.Promise = global.Promise
 
 module.exports = {
     Todo: require('./models/todo.model'),
-    Done: require('./models/done.model')
+    Done: require('./models/done.model'),
+    User: require('./models/user.model')
 }

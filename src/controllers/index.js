@@ -5,5 +5,7 @@ module.exports = {
   moveTask: require('./moveTask.controller'),
   getAllTasks: require('./getAllTasks.controller'),
   deleteToDoTask: require('./deleteToDoTask.controller'),
-  deleteDoneTask: require('./deleteDoneTask.controller')
+  deleteDoneTask: require('./deleteDoneTask.controller'),
+  createUser: require('./user.controller'),
+  getAllUsers: require('./getAllUsers.controller')
 }
