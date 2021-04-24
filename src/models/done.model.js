@@ -3,6 +3,7 @@ const Schema = mongoose.Schema
 
 const schema = new Schema({
     title: { type: String, required: true, trim: true  },
+    createdBy: { type: String, required: true, trim: true },
     color: {
         type: String,
         enum: ['GRAY', 'BLUE', 'INDIGO', 'PURPLE', 'PINK'],
@@ -13,7 +14,6 @@ const schema = new Schema({
     },
     date: { type: Date, required: true },
     createdDate: { type: Date, default: Date.now },
-    createdBy: { type: String }
 })
 
 schema.set('toJSON', { virtuals: true })
