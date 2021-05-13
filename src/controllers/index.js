@@ -7,5 +7,6 @@ module.exports = {
   deleteToDoTask: require('./deleteToDoTask.controller'),
   deleteDoneTask: require('./deleteDoneTask.controller'),
   createUser: require('./user.controller'),
-  getAllUsers: require('./getAllUsers.controller')
+  getAllUsers: require('./getAllUsers.controller'),
+  downloadFile: require('./downloadFile.controller')
 }

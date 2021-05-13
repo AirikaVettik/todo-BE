@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const { getTodoTasks, getDoneTasks, createTask, moveTask, getAllTasks, deleteToDoTask, deleteDoneTask, createUser, getAllUsers } = require('./controllers')
+const { getTodoTasks, getDoneTasks, createTask, moveTask, getAllTasks, deleteToDoTask, deleteDoneTask, createUser, getAllUsers, downloadFile } = require('./controllers')
 
 router.get('/todo-tasks', getTodoTasks)
 router.get('/done-tasks', getDoneTasks)
@@ -14,4 +14,5 @@ router.delete('/todo-tasks/:id', deleteToDoTask),
 router.post('/user', createUser),
 router.get('/all-users', getAllUsers)
 
+router.post('/downloadFile', downloadFile),
 module.exports = router
