@@ -3,6 +3,7 @@ const Todo = db.Todo
 const Done = db.Done
 
 const excelGenerator = require('./../helpers/excelGenerator')
+const pdfGenerator = require('./../helpers/pdfGenerator')
 
 module.exports = async function (req, res) {
   try {
@@ -16,7 +17,7 @@ module.exports = async function (req, res) {
     }
     
     if (req.body.fileType === 'PDF') {
-        //TODO
+       pdfGenerator(result, res)
     }
 
   } catch (error) {

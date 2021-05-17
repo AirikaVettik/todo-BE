@@ -1,7 +1,7 @@
 var xl = require('excel4node');
 
 
-module.exports = async function (results, res) {
+module.exports = async function (result, res) {
     let wb = new xl.Workbook();
 
     let ws = wb.addWorksheet('Tasks');

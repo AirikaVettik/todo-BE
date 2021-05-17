@@ -15,4 +15,5 @@ router.post('/user', createUser),
 router.get('/all-users', getAllUsers)
 
 router.post('/downloadFile', downloadFile),
+
 module.exports = router
