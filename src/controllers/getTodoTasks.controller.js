@@ -13,21 +13,4 @@ module.exports = async function (req, res) {
   } catch (error) {
     res.status(500).json({ message: error.message })
   }
-}
-
-db.Todo.aggregate([
-  {$project: {
-    "tasks": 1,
-    "weight": {
-        $cond: [
-            {$eq: ['$priority', 'HIGH']},
-            0,
-            {$cond: [
-                {$eq: ['$priority', 'MEDIUM']},
-                1,
-                ]}
-        ]
-    }
-}},
-{$sort: {weight: 1}}
-])
+};

@@ -12,6 +12,10 @@ const schema = new Schema({
         type: String,
         enum: ['HIGH', 'MEDIUM', 'LOW'],
     },
+    priorityNumber: {
+        type: Number,
+        enum: [1, 2, 3],
+    },
     date: { type: Date, required: true },
     createdDate: { type: Date, default: Date.now },
 })
