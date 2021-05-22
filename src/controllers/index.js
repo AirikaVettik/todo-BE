@@ -8,5 +8,6 @@ module.exports = {
   deleteDoneTask: require('./deleteDoneTask.controller'),
   createUser: require('./user.controller'),
   getAllUsers: require('./getAllUsers.controller'),
-  downloadFile: require('./downloadFile.controller')
+  downloadFile: require('./downloadFile.controller'),
+  getTasksCreatedBy: require('./getTasksCreatedBy.controller')
 }

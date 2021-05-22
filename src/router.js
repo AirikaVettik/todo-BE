@@ -11,7 +11,8 @@ const {
     deleteDoneTask, 
     createUser, 
     getAllUsers, 
-    downloadFile } = require('./controllers')
+    downloadFile,
+    getTasksCreatedBy } = require('./controllers')
 
 router.get('/todo-tasks', getTodoTasks)
 router.get('/done-tasks', getDoneTasks)
@@ -22,7 +23,8 @@ router.get('/all-tasks', getAllTasks)
 router.delete('/done-tasks/:id', deleteDoneTask),
 router.delete('/todo-tasks/:id', deleteToDoTask),
 router.post('/user', createUser),
-router.get('/all-users', getAllUsers)
+router.get('/all-users', getAllUsers),
+router.get('/all-tasks/:createdBy', getTasksCreatedBy)
 
 router.post('/downloadFile', downloadFile),
 

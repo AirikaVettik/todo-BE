@@ -25,6 +25,11 @@ module.exports = async function (result, res) {
           size: 12,
         }
       });
+
+    String.prototype.capitalize = function() {
+      return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
+    }
+
     
     ws.column(1).setWidth(5)
     ws.column(2).setWidth(30)
@@ -42,8 +47,8 @@ module.exports = async function (result, res) {
         index++
         ws.cell(row, 1).number(index).style(style)
         ws.cell(row, 2).string(item.title).style(style);
-        ws.cell(row, 3).string('Todo').style(style);
-        ws.cell(row, 4).string(item.priority.toLowerCase()).style(style); 
+        ws.cell(row, 3).string(item.priority.capitalize()).style(style); 
+        ws.cell(row, 4).string('Todo').style(style);
         ws.cell(row, 5).string(item.createdBy).style(style);
     }
     for await (const item of result.doneTasks) {
@@ -51,20 +56,21 @@ module.exports = async function (result, res) {
         index++
         ws.cell(row, 1).number(index).style(style)
         ws.cell(row, 2).string(item.title).style(style);
-        ws.cell(row, 3).string('Done').style(style);
-        ws.cell(row, 4).string(item.priority.toLowerCase()).style(style); 
+        ws.cell(row, 3).string(item.priority.capitalize()).style(style); 
+        ws.cell(row, 4).string('Done').style(style);
         ws.cell(row, 5).string(item.createdBy).style(style);
     }
     row++
     row++
-    for await (const item of result.todoTasks) {
+    if (result.todoTasks.length > 0) {
     ws.cell(row, 2).string('Total of Todo`s').style(greenBgColumnsRows);
-    //ws.cell(row, 3).formula(`SUM(${Aindex})`).style(style)
+    ws.cell(row, 3).formula('SUMIF(D:D, "Todo", A:A)').style(style)
     }
     row++
-    for await (const item of result.doneTasks) {
+    if (result.doneTasks.length > 0) {
+      console.log()
     ws.cell(row, 2).string('Total of Done`s').style(greenBgColumnsRows);
-    //ws.cell(row, 3).formula(`SUM(${index})`).style(style)
+    ws.cell(row, 3).formula('SUMIF(D:D, "Done", A:A)').style(style)
     }
 
     wb.write('Excel.xlsx', res )}
