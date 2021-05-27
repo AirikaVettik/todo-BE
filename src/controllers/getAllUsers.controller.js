@@ -4,10 +4,7 @@ const User = db.User
 module.exports = async function (req, res) {
   try {
     const result = [
-      {
-        title: 'Users',
-        users: await User.find({}).lean().exec()
-      }
+      await User.find({}).lean().exec()
     ]
     res.status(200).json(result)
   } catch (error) {

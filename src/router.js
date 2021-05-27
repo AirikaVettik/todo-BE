@@ -22,6 +22,7 @@ router.post('/createTask', createTask)
 router.get('/all-tasks', getAllTasks)
 router.delete('/done-tasks/:id', deleteDoneTask),
 router.delete('/todo-tasks/:id', deleteToDoTask),
+
 router.post('/user', createUser),
 router.get('/all-users', getAllUsers),
 router.get('/all-tasks/:createdBy', getTasksCreatedBy)

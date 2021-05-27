@@ -42,19 +42,18 @@ module.exports = async function (result, res) {
       }}
     if (HookData.cell.section === 'body') {
       if (HookData.column.dataKey === 'priority') {
-       console.log(HookData.column.dataKey)
-       console.log(HookData.cell.text)
+       HookData.cell.text = [(HookData.cell.raw).charAt(0).toUpperCase() + (HookData.cell.raw).slice(1).toLowerCase()]
        
       }} 
     if (HookData.cell.section === 'body') {   
       if (HookData.column.dataKey === 'priority') {
-        if (HookData.cell.text[0].indexOf('HIGH') > -1) {
+        if (HookData.cell.text[0].indexOf('High') > -1) {
           HookData.cell.styles.fillColor = [255, 204, 204]; 
         }
-        if (HookData.cell.text[0].indexOf('MEDIUM') > -1) {
+        if (HookData.cell.text[0].indexOf('Medium') > -1) {
           HookData.cell.styles.fillColor = [255, 255, 204];    
         }
-        if (HookData.cell.text[0].indexOf('LOW') > -1) {
+        if (HookData.cell.text[0].indexOf('Low') > -1) {
           HookData.cell.styles.fillColor = [229, 255, 204]; 
         }
       }}
@@ -88,23 +87,22 @@ module.exports = async function (result, res) {
       }}
     if (HookData.cell.section === 'body') {
       if (HookData.column.dataKey === 'priority') {
-       console.log(HookData.column.dataKey);
+       HookData.cell.text = [(HookData.cell.raw).charAt(0).toUpperCase() + (HookData.cell.raw).slice(1).toLowerCase()]
       }} 
     if (HookData.cell.section === 'body') {   
       if (HookData.column.dataKey === 'priority') {
-        if (HookData.cell.text[0].indexOf('HIGH') > -1) {
+        if (HookData.cell.text[0].indexOf('High') > -1) {
           HookData.cell.styles.fillColor = [255, 204, 204]; 
         }
-        if (HookData.cell.text[0].indexOf('MEDIUM') > -1) {
+        if (HookData.cell.text[0].indexOf('Medium') > -1) {
           HookData.cell.styles.fillColor = [255, 255, 204]; 
         }
-        if (HookData.cell.text[0].indexOf('LOW') > -1) {
+        if (HookData.cell.text[0].indexOf('Low') > -1) {
           HookData.cell.styles.fillColor = [229, 255, 204]; 
         }
       }}
     },
         
-    
         didDrawPage (HookData) {
             return HookData.table
           }
