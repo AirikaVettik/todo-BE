@@ -14,18 +14,20 @@ const {
     downloadFile,
     getTasksCreatedBy } = require('./controllers')
 
+router.get('/all-tasks', getAllTasks)
 router.get('/todo-tasks', getTodoTasks)
 router.get('/done-tasks', getDoneTasks)
-// id is mongo object _id and toTask is todo or done
+router.get('/all-tasks/:createdBy', getTasksCreatedBy)
+
 router.get('/moveTask/:id/:toTask', moveTask)
+
 router.post('/createTask', createTask)
-router.get('/all-tasks', getAllTasks)
+
 router.delete('/done-tasks/:id', deleteDoneTask),
 router.delete('/todo-tasks/:id', deleteToDoTask),
 
 router.post('/user', createUser),
 router.get('/all-users', getAllUsers),
-router.get('/all-tasks/:createdBy', getTasksCreatedBy)
 
 router.post('/downloadFile', downloadFile),
 
