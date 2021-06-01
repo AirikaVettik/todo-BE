@@ -8,8 +8,6 @@ module.exports = async function (result, res) {
   let startX = 15
   let startY = 20
 
-  let formatDate = moment(new Date().toISOString().slice(0,10)).format("MMM DD, YYYY")
-
   String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
   }
@@ -19,7 +17,6 @@ module.exports = async function (result, res) {
     { header: 'Created By', dataKey: 'createdBy' },
     { header: 'Date', dataKey: 'date' },
     { header: 'Priority', dataKey: 'priority' },
-
   ]
 
   if (result.todoTasks.length > 0) {
@@ -38,7 +35,7 @@ module.exports = async function (result, res) {
    didParseCell (HookData) {
     if (HookData.cell.section === 'body') {
       if (HookData.column.dataKey === 'date') {
-        HookData.cell.text = formatDate
+        HookData.cell.text = moment(new Date(HookData.cell.raw).toISOString().slice(0,10)).format("MMM DD, YYYY")
       }}
     if (HookData.cell.section === 'body') {
       if (HookData.column.dataKey === 'priority') {
@@ -83,7 +80,7 @@ module.exports = async function (result, res) {
   didParseCell (HookData) {
     if (HookData.cell.section === 'body') {
       if (HookData.column.dataKey === 'date') {
-        HookData.cell.text = formatDate
+        HookData.cell.text = moment(new Date(HookData.cell.raw).toISOString().slice(0,10)).format("MMM DD, YYYY")
       }}
     if (HookData.cell.section === 'body') {
       if (HookData.column.dataKey === 'priority') {
